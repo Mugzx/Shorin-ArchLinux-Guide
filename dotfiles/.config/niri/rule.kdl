@@ -17,9 +17,15 @@ window-rule {
     // 去掉超出圆角的窗口内容
     clip-to-geometry true
     // 全局透明度
-    opacity 0.97
+    opacity 0.98
     // 禁止边框画到背景里
     draw-border-with-background false
+}
+// niri-siderbar需要的全局窗口规则
+window-rule {
+    match is-floating=true
+    min-width 100
+    min-height 100
 }
 // 以浮动模式打开imv（一个轻量化图片预览程序）且不自动聚焦
 window-rule {
@@ -27,15 +33,16 @@ window-rule {
     open-focused false
     open-floating true
     }
-// Open the Firefox picture-in-picture player as floating by default.
-// 以浮动模式打开
+//shorinclip剪贴板TUI 
 window-rule{
 	match app-id="shorinclip"
-	//min-width 900
-	min-height 700
+	default-column-width { fixed 625; }
+    default-window-height { fixed 700; }
+    //min-height 800
 	open-floating true
 	default-floating-position x=0 y=18 relative-to="top"
 }
+// 以浮动模式打开的软件
 window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
@@ -68,6 +75,14 @@ window-rule {
     match app-id="markpix"
     match title="Steam 设置" 
     match title="另存为"
+    match app-id="better_control.py"
+    open-floating true
+}
+// waybar命令中心模块
+window-rule {
+    match app-id="command-center"
+default-column-width { fixed 1000; }
+    default-window-height { fixed 600; }
     open-floating true
 }
 //快速终端和笔记
@@ -79,13 +94,15 @@ window-rule {
 }
 window-rule{
     match app-id="bluetui"
-    min-width 500 
-    min-height 600
+    match app-id="impala"
+default-column-width { fixed 800; }
+    default-window-height { fixed 800; }
 	open-floating true
 }
 window-rule {
 	    match app-id="clipse"
-	min-height 600
+	default-column-width { fixed 625; }
+    default-window-height { fixed 700; }
 	open-floating true
 }
     // waydroid调整
@@ -143,10 +160,10 @@ window-rule {
 // }
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
+    match app-id="wechat"
     block-out-from "screen-capture"
 
     // Use this instead if you want them visible on third-party screenshot tools.

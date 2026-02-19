@@ -1,3 +1,4 @@
+
 [config.wallpaper]
 command = "swww"
 #arguments = ["img", "--transition-type", "center"]
@@ -72,17 +73,17 @@ output_path = '~/.config/gtk-4.0/colors.css'
 #output_path = '~/.config/ghostty/themes/Matugen'
 #post_hook = 'pkill -SIGUSR2 ghostty'
 
-[templates.qt5ct]
-input_path = '~/.config/matugen/templates/qtct-colors.conf'
-output_path = '~/.config/qt5ct/colors/matugen.conf'
+#[templates.qt5ct]
+#input_path = '~/.config/matugen/templates/qtct-colors.conf'
+#output_path = '~/.config/qt5ct/colors/matugen.conf'
 
-[templates.qt6ct]
-input_path = '~/.config/matugen/templates/qtct-colors.conf'
-output_path = '~/.config/qt6ct/colors/matugen.conf'
+#[templates.qt6ct]
+#input_path = '~/.config/matugen/templates/qtct-colors.conf'
+#output_path = '~/.config/qt6ct/colors/matugen.conf'
 
-[templates.color-scheme]
-input_path = '~/.config/matugen/templates/Matugen.colors'
-output_path = '~/.local/share/color-schemes/Matugen.colors'
+#[templates.color-scheme]
+#input_path = '~/.config/matugen/templates/Matugen.colors'
+#output_path = '~/.local/share/color-schemes/Matugen.colors'
 
 #[templates.hyprland]
 #input_path = '~/.config/matugen/templates/hyprland-colors.conf'
@@ -123,4 +124,20 @@ output_path = '~/.config/fastfetch/config.jsonc'
 
 [templates.hyprlock]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+output_path = '~/.cache/matugen/hypr/colors.conf'
+pre_hook = 'mkdir -p ~/.cache/matugen/hypr/'
+
+[templates.vscode_injection]
+input_path = "~/.config/matugen/templates/vscode-inject.json"
+output_path = "~/.cache/matugen_vscode_inject.json"
+post_hook = "~/.config/matugen/scripts/inject_vscode.sh"
+
+[templates.obs]
+input_path = '~/.config/matugen/templates/matugen.obt'
+output_path = '~/.config/obs-studio/themes/matugen.obt'
+
+#[templates.steam]
+#input_path = '~/.config/matugen/templates/steam.css'
+#output_path = '~/.config/AdwSteamGtk/custom.css'
+#post_hook =  'adwaita-steam-gtk -i'
+
